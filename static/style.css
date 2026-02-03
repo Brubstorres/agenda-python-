@@ -1,8 +1,136 @@
-
-p{
-    color: rgb(255, 60, 151)
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-h1{
-    color: rgb(17, 230, 17)
+/* Fundo da página */
+body {
+    background: linear-gradient(135deg, #ffe0ec, #ffc1d9);
+    min-height: 100vh;
+    padding: 40px;
+    color: #5a1a3c;
+}
+
+/* Container central (opcional, mas fica lindo) */
+body > * {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Título */
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2.5rem;
+    color: #c2185b;
+}
+
+/* Bloco de conteúdo */
+.content,
+main,
+section,
+form,
+table {
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(194, 24, 91, 0.15);
+}
+
+/* Inputs */
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    border: 1px solid #f3a5c4;
+    outline: none;
+    font-size: 1rem;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: #c2185b;
+    box-shadow: 0 0 0 2px rgba(194, 24, 91, 0.2);
+}
+
+/* Botões */
+button {
+    background-color: #e91e63;
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 12px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background-color: #c2185b;
+    transform: scale(1.03);
+}
+
+/* Tabelas (ótimo pra agenda) */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+th {
+    background-color: #f48fb1;
+    color: #fff;
+    padding: 12px;
+    text-align: left;
+}
+
+td {
+    padding: 12px;
+    border-bottom: 1px solid #f3a5c4;
+}
+
+tr:hover {
+    background-color: #ffe6f0;
+}
+
+/* Links */
+a {
+    color: #c2185b;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Centralizar o link da agenda na tela */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Estilo do link como botão */
+a {
+    background-color: #e91e63;
+    color: #fff;
+    padding: 18px 32px;
+    border-radius: 20px;
+    font-size: 1.4rem;
+    text-decoration: none;
+    box-shadow: 0 10px 25px rgba(194, 24, 91, 0.3);
+    transition: 0.3s;
+}
+
+a:hover {
+    background-color: #c2185b;
+    transform: scale(1.06);
 }
