@@ -1,4 +1,4 @@
-/* Reset
+/* Reset */
 * {
     margin: 0;
     padding: 0;
@@ -12,11 +12,17 @@ body {
     min-height: 100vh;
     padding: 40px;
     color: #5a1a3c;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 /* Container central */
 body > * {
     max-width: 900px;
+    width: 100%;
     margin: 0 auto;
 }
 
@@ -53,6 +59,7 @@ textarea {
     font-size: 1rem;
 }
 
+/* Focus */
 input:focus,
 select:focus,
 textarea:focus {
@@ -60,24 +67,77 @@ textarea:focus {
     box-shadow: 0 0 0 2px rgba(194, 24, 91, 0.2);
 }
 
-/* Botões */
-button {
+/* Botões padrão (grandes) */
+button,
+a {
+    display: block;
+    width: 200px;
+    padding: 5px 0;
+    margin: 12px auto;
+    text-align: center;
     background-color: #e91e63;
     color: #fff;
     border: none;
-    padding: 12px 20px;
-    border-radius: 12px;
-    font-size: 1rem;
+    border-radius: 16px;
+    font-size: 1.1rem;
     cursor: pointer;
+    text-decoration: none;
     transition: all 0.3s ease;
+    box-shadow: 0 6px 15px rgba(194, 24, 91, 0.3);
 }
 
-button:hover {
+/* Hover padrão */
+button:hover,
+a:hover {
     background-color: #c2185b;
-    transform: scale(1.03);
+    transform: scale(1.05);
 }
 
-/* Tabelas */
+/* ===============================
+   LISTA DE TAREFAS
+   =============================== */
+
+/* Item da tarefa */
+li {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 14px;
+    border-bottom: 1px solid #f3a5c4;
+}
+
+/* Botão apagar (menor e na frente) */
+button.apagar {
+    width: 30px;
+    height: 30px;
+    min-width: 30px;
+    padding: 0;
+    margin: 0;
+    border-radius: 50%;
+    background-color: #f44336;
+    font-size: 0.9rem;
+    box-shadow: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Hover do apagar */
+button.apagar:hover {
+    background-color: #d32f2f;
+    transform: scale(1.1);
+}
+
+/* Texto da tarefa */
+li span {
+    flex: 1;
+}
+
+/* ===============================
+   TABELAS
+   =============================== */
+
 table {
     width: 100%;
     border-collapse: collapse;
@@ -98,39 +158,4 @@ td {
 
 tr:hover {
     background-color: #ffe6f0;
-}
-
-/* Links */
-a {
-    color: #c2185b;
-    text-decoration: none;
-    font-weight: 500;
-}
-
-a:hover {
-    text-decoration: underline;
-}
-
-/* Link da agenda na tela */
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-/* Estilo do link como botão */
-a {
-    background-color: #e91e63;
-    color: #fff;
-    padding: 18px 32px;
-    border-radius: 20px;
-    font-size: 1.4rem;
-    text-decoration: none;
-    box-shadow: 0 10px 25px rgba(194, 24, 91, 0.3);
-    transition: 0.3s;
-}
-
-a:hover {
-    background-color: #c2185b;
-    transform: scale(1.06);
 }
