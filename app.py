@@ -1,8 +1,11 @@
 import re
 from flask import Flask, redirect, render_template, request, url_for
 from models.tarefa import Tarefa
+from models.database import init_db 
 
 app = Flask(__name__)
+
+init_db()
 
 
 @app.route('/')
