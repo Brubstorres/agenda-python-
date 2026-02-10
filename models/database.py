@@ -2,10 +2,29 @@ from sqlite3 import Connection, connect, Cursor
 from types import TracebackType
 from typing import Any, Optional, Self, Type
 from unittest.mock import Base
+from dotenv import load_dotenv
 import traceback
+import os
+
+load_dotenv() # Procura um arquivo .env com variaveis 
+DB_PATH = os.getenv('DATABASE', './data/tarefas.sqlite3') 
+
+def init_db(db_name: str = DB_PATH) -> None:
+    with connect(db_name) as conn:
+        conn.execute("""
+        CREATE TABLE IF NOT EXISTS tarefas (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            titulo_tarefa TEXT NOT NULL,
+            data_conclusao TEXT);
+        """)
 
 class Database:
-    def __init__(self, db_name: str) -> None:
+    """
+        Classe que gerencia conexões e operações com um banco de dados 
+        SQLite. Utiliza o protocolo de gerenciamento de contexto para 
+        garantir que a conexão seja encerrada corretamente.
+    """
+    def __init__(self, db_name: str = DB_PATH) -> None:
         self.connection: Connection = connect(db_name)
         self.cursor = self.connection.cursor()
 
