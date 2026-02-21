@@ -23,13 +23,25 @@
 
     <ul>
     {% for tarefa in tarefas %}
-        <li>{{ tarefa.titulo_tarefa }} - {{ tarefa.data_conclusao}} 
-            <a href="{{ url_for('delete', idTarefa=tarefa.id_tarefa) }}" class="btn
-            bnt-danger">Apagar</a>
-            <a href="{{ url_for('update', idTarefa=tarefa.id_tarefa) }}" class="bnt
-            bnt-primary">Editar</a>
-            <!-- Controle para editar -->
-        </li>
+        <li>
+    <span style="{% if tarefa.concluida == 1 %}text-decoration: line-through; color: gray;{% endif %}">
+        {{ tarefa.titulo_tarefa }} - {{ tarefa.data_conclusao }}
+    </span>
+
+    {% if tarefa.concluida == 0 %}
+        <a href="{{ url_for('toggle', idTarefa=tarefa.id_tarefa) }}" 
+           style="background-color: green; color: white;">Concluir</a>
+    {% else %}
+        <a href="{{ url_for('toggle', idTarefa=tarefa.id_tarefa) }}" 
+           style="background-color: red; color: white;">Reabrir</a>
+    {% endif %}
+
+    {% if tarefa.concluida == 0 %}
+        <a href="{{ url_for('delete', idTarefa=tarefa.id_tarefa) }}">Apagar</a>
+    {% endif %}
+
+    <a href="{{ url_for('update', idTarefa=tarefa.id_tarefa) }}">Editar</a>
+</li>
 
     {% endfor %}
     </ul>
